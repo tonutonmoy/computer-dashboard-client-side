@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ram",
+    "quantity": 5,
+    "price": 300,
+    "category": "ram",
+    "brand": "assus",
+    "compatibility": "mac",
+    "interface": "Thunderbolt",
+    "condition": "new",
+    "capacity": "500gb",
+    "color": "black"
+  },
+  {
+    "name": "ram",
+    "quantity": 5,
+    "price": 300,
+    "category": "ram",
+    "brand": "assus",
+    "compatibility": "mac",
+    "interface": "Thunderbolt",
+    "condition": "new",
+    "capacity": "500gb",
+    "color": "black"
+  },
+  {
+    "name": "monitor",
+    "quantity": 5,
+    "price": 200,
+    "category": "monitor",
+    "brand": "hp",
+    "compatibility": "Windows",
+    "interface": "Thunderbolt",
+    "condition": "used",
+    "capacity": "22inc",
+    "color": "white"
+  },
+  {
+    "name": "monitor",
+    "quantity": 5,
+    "price": 200,
+    "category": "monitor",
+    "brand": "hp",
+    "compatibility": "Windows",
+    "interface": "Thunderbolt",
+    "condition": "used",
+    "capacity": "22inc",
+    "color": "white"
+  },
+  {
+    "name": "graphics card",
+    "quantity": 5,
+    "price": 400,
+    "category": "graphics card",
+    "brand": "nvidea",
+    "compatibility": "mac",
+    "interface": "hdmi",
+    "condition": "new",
+    "capacity": "1gb",
+    "color": "black"
+  }
+]

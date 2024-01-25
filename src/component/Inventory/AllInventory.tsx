@@ -1,4 +1,5 @@
 import { useGetInventoryQuery } from "../../redux/features/inventoryApi/inventoryApi";
+import InventoryFilterAndSearchBar from "./InventoryFilterAndSearchBar";
 
 const AllInventory = () => {
   const { data, isLoading } = useGetInventoryQuery(null);
@@ -9,6 +10,7 @@ const AllInventory = () => {
   console.log(data);
   return (
     <div className="w-[90%] mx-auto">
+      <InventoryFilterAndSearchBar />
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
