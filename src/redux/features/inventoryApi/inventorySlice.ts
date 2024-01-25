@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const setInventorySlice = createSlice({
-  name: "auth",
+  name: "inventory",
   initialState,
   reducers: {
     setInventoryData: (state: any, action) => {

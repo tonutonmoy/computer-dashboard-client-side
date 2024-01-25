@@ -37,7 +37,7 @@ const InventoryFilterAndSearchBar = () => {
   };
 
   const queryString = new URLSearchParams(myObject).toString();
-  const { data, refetch } = useGetInventoryQuery(queryString);
+  const { data } = useGetInventoryQuery(queryString);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
