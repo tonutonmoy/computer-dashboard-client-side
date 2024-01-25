@@ -1,15 +1,25 @@
+import { useEffect } from "react";
 import { useGetInventoryQuery } from "../../redux/features/inventoryApi/inventoryApi";
+import { setInventoryData } from "../../redux/features/inventoryApi/inventorySlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import InventoryFilterAndSearchBar from "./InventoryFilterAndSearchBar";
 
 const AllInventory = () => {
   const { data, isLoading } = useGetInventoryQuery(null);
+  const dispatch = useAppDispatch();
+  const { inventoryData } = useAppSelector((e) => e.inventory);
+
+  useEffect(() => {
+    dispatch(setInventoryData(data));
+  }, [data]);
 
   if (isLoading) {
     return;
   }
-  console.log(data);
+
+  console.log(inventoryData, "data");
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[90%] mx-auto pb-60">
       <InventoryFilterAndSearchBar />
       <div className="overflow-x-auto">
         <table className="table">
@@ -34,7 +44,7 @@ const AllInventory = () => {
               <th></th>
             </tr>
           </thead>
-          {data?.data?.map((a: Record<string, number>) => (
+          {inventoryData?.map((a: Record<string, number>) => (
             <tbody key={a?._id}>
               {/* row 1 */}
               <tr>

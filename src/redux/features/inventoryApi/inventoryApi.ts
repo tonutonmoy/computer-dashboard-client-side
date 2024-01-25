@@ -6,6 +6,7 @@ const inventoryApi = baseApi.injectEndpoints({
       query: (query) => ({
         url: `/inventory?${query}`,
         method: "GET",
+        force: true,
       }),
     }),
     createInventory: builder.mutation({

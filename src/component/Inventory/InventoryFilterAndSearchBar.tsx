@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetInventoryQuery } from "../../redux/features/inventoryApi/inventoryApi";
+import { setInventoryData } from "../../redux/features/inventoryApi/inventorySlice";
+import { useAppDispatch } from "../../redux/hooks";
 
 const InventoryFilterAndSearchBar = () => {
   const [price, setPrice] = useState(0);
@@ -36,19 +38,16 @@ const InventoryFilterAndSearchBar = () => {
 
   const queryString = new URLSearchParams(myObject).toString();
   const { data, refetch } = useGetInventoryQuery(queryString);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setInventoryData(data));
+  }, [data]);
 
   console.log(data);
   return (
-    <div>
-      {price}
-      {category}
-      {compatibilityAndBrand}
-      {color}
-      {capacity}
-
-      {interfaceValue}
-      {condition}
-      <div className="m-10 w-screen max-w-screen-md">
+    <div className=" mb-20 mt-10">
+      <div className="w-[100%]">
         <div className="flex flex-col">
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
             <form className="">
@@ -227,9 +226,6 @@ const InventoryFilterAndSearchBar = () => {
               <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
                 <button className="rounded-lg bg-gray-200 px-8 py-2 font-medium text-gray-700 outline-none hover:opacity-80 focus:ring">
                   Reset
-                </button>
-                <button className="rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring">
-                  Search
                 </button>
               </div>
             </form>
