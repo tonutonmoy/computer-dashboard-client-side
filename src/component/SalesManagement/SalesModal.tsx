@@ -240,7 +240,7 @@ const SalesModal = () => {
           className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
           onClick={openCenterModal}
         >
-          Vertically centered modal
+          Sell
         </button>
 
         {/* Vertically centered modal */}

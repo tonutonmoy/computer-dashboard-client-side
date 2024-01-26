@@ -53,9 +53,8 @@ const AllInventory = () => {
               <th>Condition</th>
               <th>Interface</th>
               <th>Quantity</th>
-              <th> Sell</th>
+              <th className=" text-center"> Sell</th>
               <th>Duplicate & Edi</th>
-              <th></th>
             </tr>
           </thead>
           {inventoryData?.map((a: Record<string, number>) => (
@@ -93,7 +92,7 @@ const AllInventory = () => {
                     <SalesModal />
                   </div>
                 </td>
-                <td></td>
+
                 <td>
                   <Link
                     to={`/single-inventory/${a?._id}`}

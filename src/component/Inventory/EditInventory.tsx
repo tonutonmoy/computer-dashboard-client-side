@@ -19,7 +19,7 @@ const EditInventory = () => {
 
   console.log(id, "single id");
 
-  const { data: singleData, refetch } = useGetSingleInventoryQuery(id, {
+  const { data: singleData } = useGetSingleInventoryQuery(id, {
     refetchOnMountOrArgChange: true,
   });
 
@@ -29,9 +29,12 @@ const EditInventory = () => {
     toast.error(data?.errorMessage);
   }
 
+  if (updateData?.statusCode === 201) {
+    console.log(updateData, "aise");
+    toast.success("update done");
+  }
   if (data?.statusCode === 201) {
     toast.success(data?.message);
-    refetch();
   }
 
   const toggle = true;
@@ -60,6 +63,7 @@ const EditInventory = () => {
     console.log(event.name);
     const info = {
       id: id,
+      image: singleData?.data?.image,
       brand: brand,
       capacity: capacity,
       category: category,
@@ -80,7 +84,7 @@ const EditInventory = () => {
     }
 
     if (todo === "Duplicate") {
-      return addFunction(data);
+      return addFunction(info);
     }
 
     console.log(data);
@@ -95,11 +99,18 @@ const EditInventory = () => {
 
       <form
         onSubmit={onSubmit}
-        className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[70%] 2xl:w-[50%] mx-auto  mt-10  ${
+        className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[70%] 2xl:w-[70%] mx-auto  mt-10  ${
           toggle && " border-[1px] "
         }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
       >
-        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 xxl:grid-cols-2  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
+        <div>
+          <img
+            src={singleData?.data?.image}
+            className="w-[20%] mx-auto"
+            alt=""
+          />
+        </div>
+        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
           <div className=" text-center my-5">
             <p className=" text-[18px] font-[500] "> Name</p>
             <input
