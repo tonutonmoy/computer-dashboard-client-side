@@ -9,6 +9,13 @@ const inventoryApi = baseApi.injectEndpoints({
         force: true,
       }),
     }),
+    getSingleInventory: builder.query({
+      query: (id) => ({
+        url: `/inventory/singleInventory/${id}`,
+        method: "GET",
+        force: true,
+      }),
+    }),
     createInventory: builder.mutation({
       query: (userInfo) => ({
         url: "/inventory/create",
@@ -16,8 +23,21 @@ const inventoryApi = baseApi.injectEndpoints({
         body: userInfo,
       }),
     }),
+    updateInventory: builder.mutation({
+      query: (userInfo) => {
+        return {
+          url: `/inventory/update/${userInfo?.id}`,
+          method: "PUT",
+          body: userInfo,
+        };
+      },
+    }),
   }),
 });
 
-export const { useCreateInventoryMutation, useGetInventoryQuery } =
-  inventoryApi;
+export const {
+  useCreateInventoryMutation,
+  useGetInventoryQuery,
+  useGetSingleInventoryQuery,
+  useUpdateInventoryMutation,
+} = inventoryApi;
