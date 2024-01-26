@@ -1,5 +1,9 @@
-import { useEffect } from "react";
-import { useGetInventoryQuery } from "../../redux/features/inventoryApi/inventoryApi";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
+import {
+  useDeleteInventoryMutation,
+  useGetInventoryQuery,
+} from "../../redux/features/inventoryApi/inventoryApi";
 import {
   setInventoryData,
   setProductId,
@@ -8,40 +12,70 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import InventoryFilterAndSearchBar from "./InventoryFilterAndSearchBar";
 import SalesModal from "../SalesManagement/SalesModal";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AllInventory = () => {
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const { data, isLoading } = useGetInventoryQuery(null, {
     refetchOnMountOrArgChange: true,
   });
   const dispatch = useAppDispatch();
   const { inventoryData, sellProductId } = useAppSelector((e) => e.inventory);
+  const [deleteFunction, { data: deleteData }] = useDeleteInventoryMutation();
 
   console.log(sellProductId, "l");
   useEffect(() => {
     dispatch(setInventoryData(data));
+    // dispatch(setInventoryData(deleteData));
   }, [data]);
+
+  if (deleteData?.data) {
+    window.location.reload();
+  }
 
   if (isLoading) {
     return;
   }
+  console.log(deleteData, "deleted");
 
-  console.log(inventoryData, "data");
+  const handleCheckboxChange = (id: string) => {
+    // Check if the ID is already in the array
+    if (selectedIds.includes(id)) {
+      // If yes, remove it
+      setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
+    } else {
+      // If not, add it
+      setSelectedIds([...selectedIds, id]);
+    }
+  };
+  console.log(selectedIds, "data koi");
 
   return (
     <div className="w-[90%] mx-auto pb-60">
       <InventoryFilterAndSearchBar />
 
-      {/* */}
+      {selectedIds?.length > 0 ? (
+        <div>
+          <button
+            onClick={() => deleteFunction(selectedIds)}
+            type="button"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            className="inline-block bg-red-500 rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          >
+            Delete {selectedIds?.length}{" "}
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
+              <th></th>
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
@@ -64,7 +98,12 @@ const AllInventory = () => {
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox"
+                      checked={selectedIds.includes(String(a?._id))}
+                      onChange={() => handleCheckboxChange(a?._id?.toString())}
+                    />
                   </label>
                 </th>
 
@@ -120,6 +159,7 @@ const AllInventory = () => {
           ))}
         </table>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -32,6 +32,15 @@ const inventoryApi = baseApi.injectEndpoints({
         };
       },
     }),
+    deleteInventory: builder.mutation({
+      query: (userInfo) => {
+        return {
+          url: `/inventory/delete`,
+          method: "DELETE",
+          body: userInfo,
+        };
+      },
+    }),
   }),
 });
 
@@ -40,4 +49,5 @@ export const {
   useGetInventoryQuery,
   useGetSingleInventoryQuery,
   useUpdateInventoryMutation,
+  useDeleteInventoryMutation,
 } = inventoryApi;

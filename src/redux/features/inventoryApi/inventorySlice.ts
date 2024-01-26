@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   inventoryData: [],
+
   sellProductId: "",
 };
 
@@ -14,7 +15,6 @@ const setInventorySlice = createSlice({
       state.inventoryData = action?.payload?.data;
     },
     setProductId: (state: any, action) => {
-      console.log(action?.payload);
       state.sellProductId = action?.payload;
     },
   },

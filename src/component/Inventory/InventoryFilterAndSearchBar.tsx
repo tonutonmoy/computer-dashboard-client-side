@@ -208,7 +208,10 @@ const InventoryFilterAndSearchBar = () => {
                     htmlFor="default-range"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Price
+                    <div className="flex justify-between">
+                      <p>Price</p>
+                      <p>{price}</p>
+                    </div>
                   </label>
                   <input
                     id="default-range"

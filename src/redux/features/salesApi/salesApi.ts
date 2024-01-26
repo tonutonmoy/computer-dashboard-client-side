@@ -2,6 +2,12 @@ import { baseApi } from "../../api/baseApi";
 
 const salesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getSales: builder.query({
+      query: () => ({
+        url: "/sales",
+        method: "GET",
+      }),
+    }),
     createSales: builder.mutation({
       query: (userInfo) => ({
         url: "/sales/create",
@@ -12,4 +18,4 @@ const salesApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useCreateSalesMutation } = salesApi;
+export const { useCreateSalesMutation, useGetSalesQuery } = salesApi;

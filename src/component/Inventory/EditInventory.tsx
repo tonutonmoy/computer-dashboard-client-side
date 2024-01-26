@@ -110,7 +110,7 @@ const EditInventory = () => {
             alt=""
           />
         </div>
-        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
+        <section className="  grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0 items-center">
           <div className=" text-center my-5">
             <p className=" text-[18px] font-[500] "> Name</p>
             <input
@@ -219,26 +219,25 @@ const EditInventory = () => {
               required
             />
           </div>
-        </section>
-
-        <section className=" text-center mt-10">
-          <button
-            onClick={() => setTodo("Edit")}
-            className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+          <div className=" text-center mt-10">
+            <button
+              onClick={() => setTodo("Edit")}
+              className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
             text-[17px] font-[500]"
-          >
-            Edit
-          </button>
-        </section>
+            >
+              Edit
+            </button>
+          </div>
 
-        <section className=" text-center mt-10">
-          <button
-            onClick={() => setTodo("Duplicate")}
-            className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+          <div className=" text-center mt-10">
+            <button
+              onClick={() => setTodo("Duplicate")}
+              className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
             text-[17px] font-[500]"
-          >
-            Duplicate
-          </button>
+            >
+              Duplicate
+            </button>
+          </div>
         </section>
       </form>
       <ToastContainer />

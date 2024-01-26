@@ -246,9 +246,8 @@ const SalesModal = () => {
         {/* Vertically centered modal */}
         {isCenterModalOpen && (
           <div className="fixed top-0 left-0 flex items-center justify-center h-full w-full bg-black bg-opacity-50">
-            <div className="bg-white p-4 rounded">
-              <form onSubmit={handler} className="space-y-4" action="#">
-                <div className=" flex justify-end"></div>
+            <div className="bg-white p-4 rounded w-[30%]  pt-14 pb-10 relative">
+              <form onSubmit={handler} className="space-y-4 " action="#">
                 <div>
                   <label
                     htmlFor="name"
@@ -278,7 +277,7 @@ const SalesModal = () => {
                   />
                 </div>
 
-                <div className="relative max-w-sm">
+                <div className="relative max-w-sm  ">
                   <DatePicker
                     selected={date}
                     onChange={(date: any) => setDate(date)}
@@ -292,8 +291,11 @@ const SalesModal = () => {
                   Submit
                 </button>
               </form>
-              <button className=" btn bg-red-700" onClick={closeCenterModal}>
-                Close Modal
+              <button
+                className="  rounded-full  text-white w-10 h-10 bg-red-500 absolute top-0 right-0"
+                onClick={closeCenterModal}
+              >
+                X
               </button>
             </div>
           </div>
