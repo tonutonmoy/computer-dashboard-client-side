@@ -4,6 +4,7 @@ import AllInventory from "../component/Inventory/AllInventory";
 import AddInventory from "../component/Inventory/AddInventory";
 import EditInventory from "../component/Inventory/EditInventory";
 import SalesHistory from "../component/SalesManagement/SalesHistory";
+import Registration from "../component/Authentication/Registration";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <SalesHistory />,
       },
     ],
+  },
+  {
+    path: "/registration",
+    element: <Registration />,
   },
 ]);
 
