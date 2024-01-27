@@ -237,7 +237,7 @@ const SalesModal = () => {
         {/* Button trigger for vertically centered modal */}
         <button
           type="button"
-          className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
+          className="inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
           onClick={openCenterModal}
         >
           Sell
@@ -279,6 +279,7 @@ const SalesModal = () => {
 
                 <div className="relative max-w-sm  ">
                   <DatePicker
+                    className=" bg-gray-500 p-1 text-center rounded-lg text-white"
                     selected={date}
                     onChange={(date: any) => setDate(date)}
                   />

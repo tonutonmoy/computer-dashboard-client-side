@@ -14,6 +14,7 @@ import SalesModal from "../SalesManagement/SalesModal";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { logout } from "../../redux/features/auth/authSlice";
 
 const AllInventory = () => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -21,13 +22,11 @@ const AllInventory = () => {
     refetchOnMountOrArgChange: true,
   });
   const dispatch = useAppDispatch();
-  const { inventoryData, sellProductId } = useAppSelector((e) => e.inventory);
+  const { inventoryData } = useAppSelector((e) => e.inventory);
   const [deleteFunction, { data: deleteData }] = useDeleteInventoryMutation();
 
-  console.log(sellProductId, "l");
   useEffect(() => {
     dispatch(setInventoryData(data));
-    // dispatch(setInventoryData(deleteData));
   }, [data]);
 
   if (deleteData?.data) {
@@ -37,7 +36,7 @@ const AllInventory = () => {
   if (isLoading) {
     return;
   }
-  console.log(deleteData, "deleted");
+  console.log(data, "allInventory");
 
   const handleCheckboxChange = (id: string) => {
     // Check if the ID is already in the array
@@ -49,7 +48,12 @@ const AllInventory = () => {
       setSelectedIds([...selectedIds, id]);
     }
   };
-  console.log(selectedIds, "data koi");
+
+  if (data?.errorMessage === "Unauthorized") {
+    console.log("hello");
+    dispatch(logout());
+    window.location.reload();
+  }
 
   return (
     <div className="w-[90%] mx-auto pb-60">
@@ -71,10 +75,10 @@ const AllInventory = () => {
         ""
       )}
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-white font-bold text-[15px]">
               <th></th>
               <th>Image</th>
               <th>Name</th>
@@ -100,7 +104,7 @@ const AllInventory = () => {
                   <label>
                     <input
                       type="checkbox"
-                      className="checkbox"
+                      className="checkbox  bg-gray-200"
                       checked={selectedIds.includes(String(a?._id))}
                       onChange={() => handleCheckboxChange(a?._id?.toString())}
                     />
@@ -135,7 +139,7 @@ const AllInventory = () => {
                 <td>
                   <Link
                     to={`/single-inventory/${a?._id}`}
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     <svg
                       className="rtl:rotate-180 w-3.5 h-3.5 ms-2"

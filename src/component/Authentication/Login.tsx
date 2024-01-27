@@ -1,57 +1,41 @@
-import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useRegistrationMutation } from "../../redux/features/auth/authApi";
+import { useLoginMutation } from "../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/features/auth/authSlice";
 
 interface RegistrationFormData {
-  name: string;
   email: string;
   password: string;
-  confirmPassword: string;
-
-  role: string;
 }
 
-const Registration: React.FC = () => {
+const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<RegistrationFormData>();
 
-  const [registrationFunction, { data: registrationData }] =
-    useRegistrationMutation();
-
-  console.log(registrationData, "i");
+  const [loginFunction, { data: loginData }] = useLoginMutation();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  if (registrationData?.success === false) {
-    toast.error(registrationData?.errorMessage);
+  if (loginData?.success === false) {
+    toast.error(loginData?.errorMessage);
   }
-  if (registrationData?.success === true) {
-    toast.success(registrationData?.message);
-    dispatch(setUser(registrationData?.data));
+
+  if (loginData?.data?.token) {
+    toast.success(loginData?.message);
+    console.log(loginData.data.token, "paise but dhoke na");
+    dispatch(setUser(loginData.data));
     navigate("/");
   }
 
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
-    const { name, email, password, confirmPassword } = data;
-
-    if (password !== confirmPassword) {
-      return toast.error("Password not match");
-    }
-
-    const info = { name, email, password, role: "user" };
-
-    console.log(info);
-
-    registrationFunction(info);
+    loginFunction(data);
   };
 
   const toggle = false;
@@ -62,7 +46,7 @@ const Registration: React.FC = () => {
         className={`text-[25px] md:text-[30px] lg:text-[30px] xl:text-[35px]  2xl:text-[40px] font-medium text-center mt-20 lg:font-semibold  rounded-md  `}
       >
         {" "}
-        Registration here!!!
+        Login here!!!
       </h2>
       <div
         className={`hero min-h-screen ${
@@ -82,20 +66,6 @@ const Registration: React.FC = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className="card-body py-0 "
               >
-                <div className="form-control">
-                  <label className="label ">
-                    <span className="font-medium text-xl ">Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="name"
-                    className="input text-gray-500 input-bordered"
-                    {...register("name", { required: true })}
-                  />
-                  {errors.name && (
-                    <p className=" text-red-500 my-3">name is required</p>
-                  )}
-                </div>
                 <div className="form-control">
                   <label className="label ">
                     <span className="font-medium text-xl ">Email</span>
@@ -142,30 +112,10 @@ const Registration: React.FC = () => {
                   )}
                 </div>
 
-                <div className="form-control">
-                  <label className="label">
-                    <span className="font-medium text-xl ">
-                      Confirm password
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="confirm password"
-                    className="input input-bordered text-gray-500"
-                    {...register("confirmPassword", { required: true })}
-                  />
-
-                  {errors.confirmPassword && (
-                    <p className=" text-red-500 my-3">
-                      confirm password is required
-                    </p>
-                  )}
-                </div>
-
                 <p className="my-3">
                   {" "}
                   All ready account?{" "}
-                  <Link className=" text-orange-400" to="/login">
+                  <Link className=" text-orange-400" to="/registration">
                     please login{" "}
                   </Link>{" "}
                 </p>
@@ -176,7 +126,7 @@ const Registration: React.FC = () => {
                                    bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90
                                    "
                   >
-                    Registration
+                    Login
                   </button>
                 </div>
               </form>
@@ -189,4 +139,4 @@ const Registration: React.FC = () => {
   );
 };
 
-export default Registration;
+export default Login;
