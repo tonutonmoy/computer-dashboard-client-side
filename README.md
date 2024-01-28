@@ -5,6 +5,10 @@
   It is a computer item management application Dashboard.Authentication is used here.Computer items can be posted here.  
   Items can be searched and filtered.Items can be updated and duplicates can be copied and multiple deleted if desired.User can enter the cell data if desired and it is shown in table form and chart form.
 
+* Client side live link: https://computer-management-dashboard.firebaseapp.com/
+
+* Server side live link: https://assignment-five-seven.vercel.app/
+
 - Technology:
 
   - React
