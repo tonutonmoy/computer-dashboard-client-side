@@ -41,7 +41,7 @@ const Login: React.FC = () => {
   const toggle = false;
 
   return (
-    <div className={`pb-[100px] mt-0 ${toggle && "bg-[#090909] text-white"}`}>
+    <div className={`pb-[100px]  mt-0 ${toggle && "bg-[#090909] text-white"}`}>
       <h2
         className={`text-[25px] md:text-[30px] lg:text-[30px] xl:text-[35px]  2xl:text-[40px] font-medium text-center mt-20 lg:font-semibold  rounded-md  `}
       >
@@ -53,7 +53,7 @@ const Login: React.FC = () => {
           toggle ? "bg-[#090909] text-white" : "bg-white"
         }  `}
       >
-        <div className="   w-[50%] space-y-20  ">
+        <div className="   w-[90%] md:w-[50%] lg:w-[50%] xl:w-[50%] 2xl:w-[50%] space-y-20  ">
           <section>
             <div
               className={`card   w-[100%] md:w-[90%] lg:w-[80%] xl:w-[70%] 2xl:w-[70%] mx-auto  py-5  login-from ${
@@ -114,9 +114,9 @@ const Login: React.FC = () => {
 
                 <p className="my-3">
                   {" "}
-                  All ready account?{" "}
+                  Are you new?{" "}
                   <Link className=" text-orange-400" to="/registration">
-                    please login{" "}
+                    please register{" "}
                   </Link>{" "}
                 </p>
 

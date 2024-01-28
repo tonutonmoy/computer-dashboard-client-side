@@ -173,7 +173,7 @@ const InventoryFilterAndSearchBar = () => {
                     <option>32inch</option>
                     <option>52inch</option>
                     <option>1GB</option>
-                    <option>2GB</option>
+
                     <option>16GB</option>
                     <option>32GB</option>
                     <option>64GB</option>

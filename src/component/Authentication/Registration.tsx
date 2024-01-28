@@ -69,7 +69,7 @@ const Registration: React.FC = () => {
           toggle ? "bg-[#090909] text-white" : "bg-white"
         }  `}
       >
-        <div className="   w-[50%] space-y-20  ">
+        <div className="   w-[90%] md:w-[50%] lg:w-[50%] xl:w-[50%] 2xl:w-[50%] space-y-20  ">
           <section>
             <div
               className={`card   w-[100%] md:w-[90%] lg:w-[80%] xl:w-[70%] 2xl:w-[70%] mx-auto  py-5  login-from ${
