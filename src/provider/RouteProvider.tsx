@@ -9,7 +9,7 @@ const RouteProvider = ({ children }: any) => {
   console.log(token);
 
   if (!token) {
-    navigate("/login");
+    navigate("/");
   }
 
   return <div className="w-full">{children}</div>;

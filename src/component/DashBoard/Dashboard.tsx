@@ -28,17 +28,17 @@ const Dashboard = () => {
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-gray-100 space-y-4  text-base-content">
           <li className=" text-[17px] font-semibold ">
-            <Link to="/">Inventory</Link>
+            <Link to="/dashboard">Inventory</Link>
           </li>
           <li className=" text-[17px] font-semibold ">
-            <Link to="/add-inventory">Add Inventory</Link>
+            <Link to="/dashboard/add-inventory">Add Inventory</Link>
           </li>
           <ul className=" space-y-4">
             <li className=" text-[17px] font-semibold ">
-              <Link to="/sales-history">Sales History</Link>
+              <Link to="/dashboard/sales-history">Sales History</Link>
             </li>
             <li className=" text-[17px] font-semibold ">
-              <Link to="/sales-chart">Sales Chart</Link>
+              <Link to="/dashboard/sales-chart">Sales Chart</Link>
             </li>
           </ul>
 

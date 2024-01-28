@@ -31,7 +31,7 @@ const Login: React.FC = () => {
     toast.success(loginData?.message);
     console.log(loginData.data.token, "paise but dhoke na");
     dispatch(setUser(loginData.data));
-    navigate("/");
+    navigate("/dashboard");
   }
 
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {

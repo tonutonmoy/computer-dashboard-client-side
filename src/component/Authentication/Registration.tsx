@@ -37,7 +37,7 @@ const Registration: React.FC = () => {
   if (registrationData?.success === true) {
     toast.success(registrationData?.message);
     dispatch(setUser(registrationData?.data));
-    navigate("/");
+    navigate("/dashboard");
   }
 
   const onSubmit: SubmitHandler<RegistrationFormData> = (data) => {
@@ -165,7 +165,7 @@ const Registration: React.FC = () => {
                 <p className="my-3">
                   {" "}
                   All ready account?{" "}
-                  <Link className=" text-orange-400" to="/login">
+                  <Link className=" text-orange-400" to="/">
                     please login{" "}
                   </Link>{" "}
                 </p>

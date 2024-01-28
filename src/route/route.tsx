@@ -14,6 +14,15 @@ import SalesInChart from "../component/SalesManagement/SalesInChart";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/registration",
+    element: <Registration />,
+  },
+
+  {
+    path: "/dashboard",
     element: (
       <RouteProvider>
         <Dashboard />
@@ -21,7 +30,8 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/",
+        path: "/dashboard",
+
         element: (
           <RouteProvider>
             <AllInventory />,
@@ -29,7 +39,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-inventory",
+        path: "/dashboard/add-inventory",
         element: (
           <RouteProvider>
             <AddInventory />
@@ -37,7 +47,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/single-inventory/:id",
+        path: "/dashboard/single-inventory/:id",
         element: (
           <RouteProvider>
             <EditInventory />
@@ -45,7 +55,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/sales-chart",
+        path: "/dashboard/sales-chart",
         element: (
           <RouteProvider>
             <SalesInChart />
@@ -53,7 +63,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/sales-history",
+        path: "/dashboard/sales-history",
         element: (
           <RouteProvider>
             <SalesHistory />
@@ -61,14 +71,6 @@ const router = createBrowserRouter([
         ),
       },
     ],
-  },
-  {
-    path: "/registration",
-    element: <Registration />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 
