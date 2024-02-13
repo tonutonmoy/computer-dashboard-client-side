@@ -47,7 +47,7 @@ const Registration: React.FC = () => {
       return toast.error("Password not match");
     }
 
-    const info = { name, email, password, role: "user" };
+    const info = { name, email, password, role: "buyer" };
 
     console.log(info);
 
