@@ -33,6 +33,9 @@ const Dashboard = () => {
           <li className=" text-[17px] font-semibold ">
             <Link to="/dashboard/add-inventory">Add Inventory</Link>
           </li>
+          <li className=" text-[17px] font-semibold ">
+            <Link to="/dashboard/coupon"> Coupon Management</Link>
+          </li>
           <ul className=" space-y-4">
             <li className=" text-[17px] font-semibold ">
               <Link to="/dashboard/sales-history">Sales History</Link>

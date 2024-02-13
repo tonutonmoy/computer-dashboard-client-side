@@ -8,6 +8,7 @@ import Registration from "../component/Authentication/Registration";
 import Login from "../component/Authentication/Login";
 import RouteProvider from "../provider/RouteProvider";
 
+import CouponManagement from "../component/CouponManagement/CouponManagement";
 import SalesHistory from "../component/SalesManagement/SalesHistory";
 import SalesInChart from "../component/SalesManagement/SalesInChart";
 
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <EditInventory />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/coupon",
+        element: (
+          <RouteProvider>
+            <CouponManagement />
           </RouteProvider>
         ),
       },
