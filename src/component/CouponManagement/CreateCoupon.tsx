@@ -14,7 +14,7 @@ const CreateCoupon = () => {
     let amountOrPercentage = Number(e.target.amountOrPercentage.value);
 
     if (select === "Shipping") {
-      amountOrPercentage = Number(0);
+      amountOrPercentage = Number(10);
     }
 
     const info = {

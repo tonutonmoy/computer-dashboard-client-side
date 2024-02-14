@@ -174,7 +174,7 @@ import { setInventoryData } from "../../redux/features/inventoryApi/inventorySli
 
 const SalesModal = () => {
   const { inventoryData, sellProductId } = useAppSelector((e) => e.inventory);
-  console.log(sellProductId);
+
   const [date, setDate] = useState(new Date());
   const [addData, { data }] = useCreateSalesMutation();
 

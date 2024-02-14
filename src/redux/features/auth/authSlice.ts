@@ -8,8 +8,15 @@ export type TUser = {
 
   exp: number;
 };
+export type TUser2 = {
+  _id: string;
+  role: string;
+  email: string;
+
+  username: string;
+};
 type TAuthState = {
-  user: null | TUser;
+  user: null | TUser2;
   token: null | string;
 };
 

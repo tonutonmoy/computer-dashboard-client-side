@@ -11,6 +11,7 @@ import RouteProvider from "../provider/RouteProvider";
 import CouponManagement from "../component/CouponManagement/CouponManagement";
 import SalesHistory from "../component/SalesManagement/SalesHistory";
 import SalesInChart from "../component/SalesManagement/SalesInChart";
+import CheckOut from "../component/Inventory/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <EditInventory />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/checkOut/:id",
+        element: (
+          <RouteProvider>
+            <CheckOut />
           </RouteProvider>
         ),
       },
