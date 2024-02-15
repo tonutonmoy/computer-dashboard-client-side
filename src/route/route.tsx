@@ -14,6 +14,8 @@ import SalesInChart from "../component/SalesManagement/SalesInChart";
 import CheckOut from "../component/Inventory/CheckOut";
 import PurchaseInChart from "../component/PurchaseManagement/PurchaseChart";
 import PurchaseHistory from "../component/PurchaseManagement/PurchaseHistory";
+import Servicing from "../component/ServicingManagement/Servicing";
+import ServicingManagement from "../component/ServicingManagement/ServicingManagement";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,22 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <CouponManagement />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/servicing-management",
+        element: (
+          <RouteProvider>
+            <ServicingManagement />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/servicing",
+        element: (
+          <RouteProvider>
+            <Servicing />
           </RouteProvider>
         ),
       },

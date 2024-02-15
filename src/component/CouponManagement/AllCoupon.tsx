@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ToastContainer } from "react-toastify";
+
 import {
   useDeleteCouponMutation,
   useGetCouponQuery,
@@ -8,7 +8,6 @@ import {
 const AllCoupon = () => {
   const { data } = useGetCouponQuery(null);
   const [deleteCouponFunction] = useDeleteCouponMutation();
-  console.log(data, "data");
 
   const deleteHandler = async (id: string) => {
     await deleteCouponFunction(id);
@@ -29,7 +28,7 @@ const AllCoupon = () => {
             </tr>
           </thead>
           {data?.data?.map((a: Record<string, number>) => (
-            <tbody>
+            <tbody key={a?._id}>
               {/* row 1 */}
 
               <tr>
@@ -49,7 +48,6 @@ const AllCoupon = () => {
           ))}
         </table>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import CheckOutForm from "./CheckOutForm";
 import PurchaseForm from "./PurchaseForm";
@@ -12,7 +13,7 @@ const CheckOut = () => {
   const { data: singleData } = useGetSingleInventoryQuery(id, {
     refetchOnMountOrArgChange: true,
   });
-  const dateChange = (d) => {
+  const dateChange = (d: any) => {
     setCurrentDate(d);
   };
 
