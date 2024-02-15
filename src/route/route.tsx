@@ -12,6 +12,8 @@ import CouponManagement from "../component/CouponManagement/CouponManagement";
 import SalesHistory from "../component/SalesManagement/SalesHistory";
 import SalesInChart from "../component/SalesManagement/SalesInChart";
 import CheckOut from "../component/Inventory/CheckOut";
+import PurchaseInChart from "../component/PurchaseManagement/PurchaseChart";
+import PurchaseHistory from "../component/PurchaseManagement/PurchaseHistory";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,22 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <SalesHistory />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/purchase-history",
+        element: (
+          <RouteProvider>
+            <PurchaseHistory />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/purchase-chart",
+        element: (
+          <RouteProvider>
+            <PurchaseInChart />
           </RouteProvider>
         ),
       },
