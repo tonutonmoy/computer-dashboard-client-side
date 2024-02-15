@@ -37,15 +37,11 @@ const AllInventory = () => {
   if (isLoading) {
     return;
   }
-  console.log(data, "allInventory");
 
   const handleCheckboxChange = (id: string) => {
-    // Check if the ID is already in the array
     if (selectedIds.includes(id)) {
-      // If yes, remove it
       setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
     } else {
-      // If not, add it
       setSelectedIds([...selectedIds, id]);
     }
   };
