@@ -8,9 +8,9 @@ const purchaseApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
-    getSingleCoupon: builder.query({
-      query: (id) => ({
-        url: `/purchase/single/${id}`,
+    getSinglePurchase: builder.query({
+      query: (email) => ({
+        url: `/purchase/${email}`,
         method: "GET",
       }),
     }),
@@ -27,5 +27,5 @@ const purchaseApi = baseApi.injectEndpoints({
 export const {
   useCreatePurchaseMutation,
   useGetPurchaseQuery,
-  useGetSingleCouponQuery,
+  useGetSinglePurchaseQuery,
 } = purchaseApi;

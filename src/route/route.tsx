@@ -16,6 +16,7 @@ import PurchaseInChart from "../component/PurchaseManagement/PurchaseChart";
 import PurchaseHistory from "../component/PurchaseManagement/PurchaseHistory";
 import Servicing from "../component/ServicingManagement/Servicing";
 import ServicingManagement from "../component/ServicingManagement/ServicingManagement";
+import MyProductHistory from "../component/UserSection/MyProductHistory";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
           </RouteProvider>
         ),
       },
+
       {
         path: "/dashboard/add-inventory",
         element: (
@@ -121,6 +123,14 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <PurchaseInChart />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/my-product-history",
+        element: (
+          <RouteProvider>
+            <MyProductHistory />
           </RouteProvider>
         ),
       },

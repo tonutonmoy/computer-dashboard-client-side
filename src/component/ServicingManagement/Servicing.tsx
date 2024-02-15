@@ -115,7 +115,7 @@ const Servicing = () => {
           <div className=" text-center my-5">
             <p className=" text-[18px] font-[500] ">Date and Time</p>
             <DateTimePicker
-              className="input input-bordered input-md w-full max-w-xs my-3 text-gray-500 "
+              className="input-md w-full max-w-xs my-3 text-gray-500 "
               onChange={onChange}
               value={value}
             />

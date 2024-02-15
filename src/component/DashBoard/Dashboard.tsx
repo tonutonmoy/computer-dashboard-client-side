@@ -66,6 +66,11 @@ const Dashboard = () => {
               <Link to="/dashboard/purchase-chart">Purchase Chart</Link>
             </li>
           </ul>
+          <ul className=" space-y-4">
+            <li className=" text-[17px] font-semibold ">
+              <Link to="/dashboard/my-product-history">My Product History</Link>
+            </li>
+          </ul>
 
           <div className="mt-[100px] absolute bottom-[10%] right-[50%]">
             <button

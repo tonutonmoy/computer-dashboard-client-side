@@ -33,7 +33,7 @@ const ServicingManagement = () => {
             </tr>
           </thead>
           {data?.data?.map((a: Record<string, number>) => (
-            <tbody key={a?.id}>
+            <tbody key={a?._id}>
               {/* row 1 */}
 
               <tr>
