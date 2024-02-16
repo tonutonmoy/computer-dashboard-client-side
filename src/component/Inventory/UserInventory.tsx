@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 
-const UserInventory = ({ inventoryData }) => {
+const UserInventory = ({ inventoryData }: any) => {
   console.log(inventoryData);
   return (
     <div className=" grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-10 ">
-      {inventoryData?.map((a) => (
+      {inventoryData?.map((a: any) => (
         <section className="py-10">
           <div className="">
             <article className="mx-auto my-4 flex w-full flex-col overflow-hidden rounded-2xl border border-gray-300 bg-white text-gray-900 transition hover:translate-y-2 hover:shadow-lg">

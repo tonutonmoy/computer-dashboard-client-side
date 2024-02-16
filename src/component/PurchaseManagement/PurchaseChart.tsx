@@ -112,28 +112,38 @@ const PurchaseInChart = () => {
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
         Purchase Chart
       </h2>
-      <div className=" w-[50%] md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%] mx-auto ">
-        <select
-          className=" text-white bg-black/90 p-2 rounded-lg"
-          value={selectedInterval}
-          onChange={(e) =>
-            setSelectedInterval(e.target.value as keyof SalesData)
-          }
-        >
-          {intervalOptions?.map((option) => (
-            <option
-              className=" text-white bg-black/90 p-10 text[15px] "
-              key={option}
-              value={option}
+      {data?.data?.length > 0 ? (
+        <section>
+          <div className=" w-[50%] md:w-[50%] lg:w-[40%] xl:w-[35%] 2xl:w-[30%] mx-auto ">
+            <select
+              className=" text-white bg-black/90 p-2 rounded-lg"
+              value={selectedInterval}
+              onChange={(e) =>
+                setSelectedInterval(e.target.value as keyof SalesData)
+              }
             >
-              {option}
-            </option>
-          ))}
-        </select>
+              {intervalOptions?.map((option) => (
+                <option
+                  className=" text-white bg-black/90 p-10 text[15px] "
+                  key={option}
+                  value={option}
+                >
+                  {option}
+                </option>
+              ))}
+            </select>
 
-        {/* Chart Section */}
-        <canvas id="salesChart" width="500" height="500"></canvas>
-      </div>
+            {/* Chart Section */}
+            <canvas id="salesChart" width="500" height="500"></canvas>
+          </div>
+        </section>
+      ) : (
+        <section>
+          <h3 className=" text-[20px] font-[500] text-red-500 text-center">
+            No data available
+          </h3>
+        </section>
+      )}
     </div>
   );
 };

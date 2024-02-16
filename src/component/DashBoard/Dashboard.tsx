@@ -1,9 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 
 const Dashboard = () => {
+  const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
+
+  console.log(user?.role, "role");
 
   const logOutHandler = () => {
     dispatch(logout());
@@ -27,50 +30,68 @@ const Dashboard = () => {
           className="drawer-overlay"
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-gray-100 space-y-4  text-base-content">
-          <li className=" text-[17px] font-semibold ">
-            <Link to="/dashboard">Inventory</Link>
-          </li>
-          <li className=" text-[17px] font-semibold ">
-            <Link to="/dashboard/add-inventory">Add Inventory</Link>
-          </li>
+          <ul className=" space-y-4">
+            <li className=" text-[17px] font-semibold ">
+              <Link to="/dashboard">Inventory</Link>
+            </li>
+            {user?.role === "seller" && (
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/add-inventory">Add Inventory</Link>
+              </li>
+            )}
+          </ul>
+          {user?.role === "seller" && (
+            <ul className=" space-y-4">
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/coupon"> Coupon Management</Link>
+              </li>
+            </ul>
+          )}
+          <ul className=" space-y-4">
+            {user?.role === "buyer" && (
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/servicing"> Servicing</Link>
+              </li>
+            )}
+            {user?.role === "seller" && (
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/servicing-management">
+                  {" "}
+                  Servicing Management
+                </Link>
+              </li>
+            )}
+          </ul>
+          {user?.role === "seller" && (
+            <ul className=" space-y-4">
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/sales-history">Sales History</Link>
+              </li>
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/sales-chart">Sales Chart</Link>
+              </li>
+            </ul>
+          )}
+          {user?.role === "seller" && (
+            <ul className=" space-y-4">
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/purchase-history">Purchase History</Link>
+              </li>
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/purchase-chart">Purchase Chart</Link>
+              </li>
+            </ul>
+          )}
 
-          <ul className=" space-y-4">
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/coupon"> Coupon Management</Link>
-            </li>
-          </ul>
-          <ul className=" space-y-4">
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/servicing"> Servicing</Link>
-            </li>
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/servicing-management">
-                {" "}
-                Servicing Management
-              </Link>
-            </li>
-          </ul>
-          <ul className=" space-y-4">
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/sales-history">Sales History</Link>
-            </li>
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/sales-chart">Sales Chart</Link>
-            </li>
-          </ul>
-          <ul className=" space-y-4">
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/purchase-history">Purchase History</Link>
-            </li>
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/purchase-chart">Purchase Chart</Link>
-            </li>
-          </ul>
-          <ul className=" space-y-4">
-            <li className=" text-[17px] font-semibold ">
-              <Link to="/dashboard/my-product-history">My Product History</Link>
-            </li>
-          </ul>
+          {user?.role === "buyer" && (
+            <ul className=" space-y-4">
+              <li className=" text-[17px] font-semibold ">
+                <Link to="/dashboard/my-product-history">
+                  My Product History
+                </Link>
+              </li>
+            </ul>
+          )}
 
           <div className="mt-[100px] absolute bottom-[10%] right-[50%]">
             <button

@@ -19,7 +19,7 @@ const baseQuery = fetchBaseQuery({
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQuery,
-  tagTypes: ["semester", "courses", "offeredCourse"],
+  tagTypes: ["Coupon"],
   refetchOnMountOrArgChange: 30,
   endpoints: () => ({}),
 });

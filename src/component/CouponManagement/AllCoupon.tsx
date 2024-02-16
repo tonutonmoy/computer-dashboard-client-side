@@ -37,7 +37,7 @@ const AllCoupon = () => {
                 <td>{a?.amountOrPercentage}</td>
                 <td className=" text-center">
                   <button
-                    onClick={() => deleteHandler(a?._id)}
+                    onClick={() => deleteHandler(String(a?._id))}
                     className="rounded-lg bg-red-500 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
                   >
                     Delete

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
-import { useCreateInventoryMutation } from "../../redux/features/inventoryApi/inventoryApi";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,7 +19,7 @@ type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const Servicing = () => {
-  const [servicingFunction, { data }] = useCreateServicingMutation();
+  const [servicingFunction] = useCreateServicingMutation();
   const { register, handleSubmit, reset } = useForm();
   const [value, onChange] = useState<Value>(new Date());
 

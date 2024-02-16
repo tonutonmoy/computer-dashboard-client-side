@@ -225,7 +225,9 @@ const SalesModal = () => {
 
     const info = { name, quantity, date, productId: sellProductId };
     addData(info);
-    console.log(name, quantity, date);
+
+    console.log(date);
+    console.log(date.toISOString());
     setCenterModalOpen(false);
   };
 
@@ -281,7 +283,7 @@ const SalesModal = () => {
                   <DatePicker
                     className=" bg-gray-500 p-1 text-center rounded-lg text-white"
                     selected={date}
-                    onChange={(date: any) => setDate(date)}
+                    onChange={(e: any) => setDate(e)}
                   />
                 </div>
 

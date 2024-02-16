@@ -16,60 +16,72 @@ const ServicingManagement = () => {
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
         Servicing Management
       </h2>
-      <div className="overflow-x-auto">
-        <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
-          {/* head */}
-          <thead>
-            <tr className="text-white font-bold text-[15px]">
-              <th>User Name</th>
-              <th>User Email</th>
 
-              <th>Phone Number</th>
-              <th>Model</th>
-              <th>Serial Number</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th className=" text-center">Details</th>
-            </tr>
-          </thead>
-          {data?.data?.map((a: Record<string, number>) => (
-            <tbody key={a?._id}>
-              {/* row 1 */}
+      {data?.data?.length > 0 ? (
+        <section>
+          <div className="overflow-x-auto">
+            <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+              {/* head */}
+              <thead>
+                <tr className="text-white font-bold text-[15px]">
+                  <th>User Name</th>
+                  <th>User Email</th>
 
-              <tr>
-                <td>{a?.userName}</td>
-                <td>{a?.userEmail}</td>
-                <td>{a?.phoneNumber}</td>
-                <td>{a?.model}</td>
-                <td>{a?.serialNumber}</td>
+                  <th>Phone Number</th>
+                  <th>Model</th>
+                  <th>Serial Number</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th className=" text-center">Details</th>
+                </tr>
+              </thead>
+              {data?.data?.map((a: Record<string, number>) => (
+                <tbody key={a?._id}>
+                  {/* row 1 */}
 
-                <td>
-                  {a?.dataAndTime
-                    ? new Date(a.dataAndTime).toLocaleDateString()
-                    : ""}
-                </td>
-                <td>
-                  {a?.dataAndTime
-                    ? new Date(a.dataAndTime).toLocaleTimeString()
-                    : ""}
-                </td>
+                  <tr>
+                    <td>{a?.userName}</td>
+                    <td>{a?.userEmail}</td>
+                    <td>{a?.phoneNumber}</td>
+                    <td>{a?.model}</td>
+                    <td>{a?.serialNumber}</td>
 
-                <td className=" text-center">
-                  <button
-                    onClick={() => {
-                      toggleModal();
-                      setDetail(a?.detail);
-                    }}
-                    className="rounded-lg bg-blue-500 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-      </div>
+                    <td>
+                      {a?.dataAndTime
+                        ? new Date(a?.dataAndTime).toLocaleDateString()
+                        : ""}
+                    </td>
+                    <td>
+                      {a?.dataAndTime
+                        ? new Date(a?.dataAndTime).toLocaleTimeString()
+                        : ""}
+                    </td>
+
+                    <td className=" text-center">
+                      <button
+                        onClick={() => {
+                          toggleModal();
+                          setDetail(String(a?.detail));
+                        }}
+                        className="rounded-lg bg-blue-500 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
+                      >
+                        Details
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
+          </div>
+        </section>
+      ) : (
+        <section>
+          <h3 className=" text-red-500 text-[500] text-[25px] text-center">
+            No data is available
+          </h3>
+        </section>
+      )}
+
       {/*  */}
 
       <div>
