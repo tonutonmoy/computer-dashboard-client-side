@@ -113,7 +113,7 @@ const SalesHistory = () => {
   const intervalOptions = ["Weekly", "Daily", "Monthly", "Yearly"];
 
   return (
-    <div className="w-[70%] mx-auto mt-6">
+    <div className="w-[90%] 3xl:w-[70%] mx-auto mt-6">
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
         Sales History
       </h2>
@@ -134,7 +134,7 @@ const SalesHistory = () => {
       </select>
 
       {/* Table Section */}
-      <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+      <table className="table bg-gray-700 text-white w-full mt-4 border p-10 overflow-auto">
         <thead>
           <tr className="text-white font-bold text-[15px]">
             <th>Date</th>

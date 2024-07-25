@@ -12,7 +12,7 @@ const PurchaseForm = ({ singleData, date, SetDate }: any) => {
   console.log(user);
 
   return (
-    <div className=" w-full pb-60  ">
+    <div className=" w-full xl:pb-60  ">
       <form
         className={` mx-auto  mt-10  ${
           toggle && " border-[1px] "

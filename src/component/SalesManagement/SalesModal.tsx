@@ -248,7 +248,7 @@ const SalesModal = () => {
         {/* Vertically centered modal */}
         {isCenterModalOpen && (
           <div className="fixed top-0 left-0 flex items-center justify-center h-full w-full bg-black bg-opacity-50">
-            <div className="bg-white p-4 rounded w-[30%]  pt-14 pb-10 relative">
+            <div className="bg-white p-4 rounded w-[90%] md:w-[50%]  lg:w-[30%]  pt-14 pb-10 relative">
               <form onSubmit={handler} className="space-y-4 " action="#">
                 <div>
                   <label

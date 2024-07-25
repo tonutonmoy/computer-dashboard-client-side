@@ -57,7 +57,7 @@ const Servicing = () => {
           toggle && " border-[1px] "
         }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
       >
-        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
+        <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
           <div className=" text-center my-5">
             <p className=" text-[18px] font-[500] "> Name</p>
             <input

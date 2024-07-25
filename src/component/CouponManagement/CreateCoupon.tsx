@@ -29,8 +29,8 @@ const CreateCoupon = () => {
   return (
     <div className="m-10 w-screen max-w-screen-md">
       <div className="flex flex-col">
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
-          <form onSubmit={handler} className="">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg md:relative">
+          <form onSubmit={handler} className=" ">
             <div className="grid  space-y-4">
               <div className="flex flex-col ">
                 <label
@@ -103,7 +103,7 @@ const CreateCoupon = () => {
               </div>
             </div>
           </form>
-          <div>
+          <div className=" md:absolute bottom-5 my-2">
             <button
               onClick={() => window.location.reload()}
               type="submit"

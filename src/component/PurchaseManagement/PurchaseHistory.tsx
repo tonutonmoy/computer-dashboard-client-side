@@ -119,7 +119,7 @@ const PurchaseHistory = () => {
   const intervalOptions = ["Weekly", "Daily", "Monthly", "Yearly"];
 
   return (
-    <div className="w-[70%] mx-auto mt-6">
+    <div className="w-[70%]  mx-auto pt-6 ">
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
         Purchase History
       </h2>
@@ -145,7 +145,7 @@ const PurchaseHistory = () => {
           </select>
 
           {/* Table Section */}
-          <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+          <table className="table bg-gray-700 text-white w-full mt-4 border p-10 " >
             <thead>
               <tr className="text-white font-bold text-[15px]">
                 <th>Date</th>
@@ -158,7 +158,7 @@ const PurchaseHistory = () => {
                 <th>Total Price</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className=" ">
               {Object.entries(categorizedSales).map(([key, sales]) => (
                 <tr key={key}>
                   <td>{key}</td>
@@ -204,7 +204,7 @@ const PurchaseHistory = () => {
           </table>
         </section>
       ) : (
-        <section>
+        <section className="">
           <h3 className=" text-[20px] font-[500] text-red-500 text-center">
             No data available
           </h3>

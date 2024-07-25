@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const UserInventory = ({ inventoryData }: any) => {
   console.log(inventoryData);
   return (
-    <div className=" grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-10 ">
+    <div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-10 ">
       {inventoryData?.map((a: any) => (
         <section className="py-10">
           <div className="">

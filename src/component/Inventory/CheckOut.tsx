@@ -22,7 +22,7 @@ const CheckOut = () => {
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
         CheckOut
       </h2>
-      <div className=" grid grid-cols-2 w-[90%] mx-auto gap-10">
+      <div className=" grid xl:grid-cols-2 w-[90%] mx-auto gap-10">
         <PurchaseForm
           singleData={singleData}
           dateChange={dateChange}
