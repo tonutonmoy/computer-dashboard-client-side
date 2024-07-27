@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useGetServicingQuery } from "../../redux/features/servicingApi/servicingApi";
+import Loging from "../../sharedComponent/Loging";
 
 const ServicingManagement = () => {
-  const { data } = useGetServicingQuery(null);
+  const { data,isLoading } = useGetServicingQuery(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [detail, setDetail] = useState("");
 
@@ -10,7 +11,10 @@ const ServicingManagement = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  console.log(data, "table");
+  if (isLoading) {
+    return <Loging/>;
+  }
+
   return (
     <div className="w-[90%] mx-auto pb-60">
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
@@ -20,7 +24,7 @@ const ServicingManagement = () => {
       {data?.data?.length > 0 ? (
         <section>
           <div className="overflow-x-auto">
-            <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+            <table className="table border-none bg-gradient-to-b from-gray-700 to-gray-600 bg-gradient-to-r text-white w-full mt-4 border p-10">
               {/* head */}
               <thead>
                 <tr className="text-white font-bold text-[15px]">
@@ -63,7 +67,8 @@ const ServicingManagement = () => {
                           toggleModal();
                           setDetail(String(a?.detail));
                         }}
-                        className="rounded-lg bg-blue-500 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
+                      className="py-1 px-3 rounded-lg hover:bg-blue-500 border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
+                text-[17px] font-[500]"
                       >
                         Details
                       </button>

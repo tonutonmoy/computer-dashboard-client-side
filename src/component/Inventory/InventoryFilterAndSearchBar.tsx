@@ -233,7 +233,8 @@ const InventoryFilterAndSearchBar = () => {
               </section>
 
               <div className="mt-6 grid w-full grid-cols-2 justify-end space-x-4 md:flex">
-                <button className="rounded-lg bg-red-500 text-white px-8 py-2 font-medium  outline-none hover:opacity-80 focus:ring">
+                <button className="py-1 px-3 rounded-lg btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+                text-[17px] font-[500]">
                   Reset
                 </button>
               </div>

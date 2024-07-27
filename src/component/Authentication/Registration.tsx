@@ -172,7 +172,7 @@ const Registration: React.FC = () => {
 
                 <div className="form-control mt-6">
                   <button
-                    className="btn text-[15px]  text-white
+                    className="py-2 px-3 rounded-lg font-semibold text-[15px]  text-white
                                    bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90
                                    "
                   >

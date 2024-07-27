@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { logout } from "../../redux/features/auth/authSlice";
 import UserInventory from "./UserInventory";
+import Loging from "../../sharedComponent/Loging";
 
 const AllInventory = () => {
   const { user } = useAppSelector((state) => state.auth);
@@ -36,7 +37,7 @@ const AllInventory = () => {
   }
 
   if (isLoading) {
-    return;
+    return <Loging/>;
   }
 
   const handleCheckboxChange = (id: string) => {
@@ -71,7 +72,8 @@ const AllInventory = () => {
                 type="button"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                className="inline-block bg-red-500 rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+               className="py-1 px-3 rounded-lg btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+                text-[17px] font-[500]"
               >
                 Delete {selectedIds?.length}{" "}
               </button>
@@ -79,8 +81,8 @@ const AllInventory = () => {
           ) : (
             ""
           )}
-          <div className="overflow-x-auto">
-            <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+          <div className="overflow-x-auto ">
+            <table className="table border-none bg-gradient-to-b from-gray-700 to-gray-600 bg-gradient-to-r text-white w-full mt-4 border p-10 ">
               {/* head */}
               <thead>
                 <tr className="text-white font-bold text-[15px]">
@@ -138,7 +140,8 @@ const AllInventory = () => {
                     <td>{a?.interface}</td>
                     <td>{a?.quantity}</td>
                     <td>
-                      <div onClick={() => dispatch(setProductId(a?._id))}>
+                      <div className="py-2 w-full px-3 flex justify-center   rounded-lg  hover:bg-blue-500 border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
+                text-[15px] font-[500]" onClick={() => dispatch(setProductId(a?._id))}>
                         <SalesModal />
                       </div>
                     </td>
@@ -146,7 +149,8 @@ const AllInventory = () => {
                     <td>
                       <Link
                         to={`/dashboard/single-inventory/${a?._id}`}
-                        className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                          className="py-2  justify-center rounded-lg  inline-flex w-full border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 hover:bg-red-500 via-black to-red-500/90 text-white hover:border-white 
+                text-[17px] font-[500]"
                       >
                         <svg
                           className="rtl:rotate-180 w-3.5 h-3.5 ms-2"

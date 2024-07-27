@@ -7,6 +7,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 import { useEffect, useRef, useState } from "react";
 import { useGetPurchaseQuery } from "../../redux/features/purchaseApi/purchaseApi";
+import Loging from "../../sharedComponent/Loging";
 
 type SalesData = {
   [key: string]: Array<{
@@ -114,7 +115,10 @@ const PurchaseHistory = () => {
     }
   }, [categorizedSales, selectedInterval]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <Loging/>;
+  }
+
 
   const intervalOptions = ["Weekly", "Daily", "Monthly", "Yearly"];
 
@@ -127,7 +131,7 @@ const PurchaseHistory = () => {
       {data?.data?.length > 0 ? (
         <section>
           <select
-            className="text-white bg-black/90 p-2 rounded-lg"
+            className="text-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))]  text-[15px] from-blue-500/90 via-black to-blue-500/90 btn-outline py-1 px-3 rounded-lg font-semibold focus:none"
             value={selectedInterval}
             onChange={(e) =>
               setSelectedInterval(e.target.value as keyof SalesData)
@@ -135,7 +139,7 @@ const PurchaseHistory = () => {
           >
             {intervalOptions?.map((option) => (
               <option
-                className="text-white bg-black/90 p-10 text-[15px]"
+                className="text-white bg-gray-700 p-10 text-[15px]"
                 key={option}
                 value={option}
               >
@@ -145,7 +149,7 @@ const PurchaseHistory = () => {
           </select>
 
           {/* Table Section */}
-          <table className="table bg-gray-700 text-white w-full mt-4 border p-10 " >
+          <table className="table border-none bg-gradient-to-b from-gray-700 to-gray-600 bg-gradient-to-r text-white w-full mt-4 border p-10 " >
             <thead>
               <tr className="text-white font-bold text-[15px]">
                 <th>Date</th>

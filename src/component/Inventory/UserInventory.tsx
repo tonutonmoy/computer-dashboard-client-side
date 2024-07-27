@@ -8,7 +8,7 @@ const UserInventory = ({ inventoryData }: any) => {
       {inventoryData?.map((a: any) => (
         <section className="py-10">
           <div className="">
-            <article className="mx-auto my-4 flex w-full flex-col overflow-hidden rounded-2xl border border-gray-300 bg-white text-gray-900 transition hover:translate-y-2 hover:shadow-lg">
+            <article className="mx-auto shadow-lg border-none my-4 flex w-full flex-col overflow-hidden rounded-2xl border border-gray-300 bg-white text-gray-900 transition hover:translate-y-2 hover:shadow-lg">
               <img src={a?.image} className="h-56 w-full object-cover" alt="" />
               <div className=" px-6 py-5 ">
                 <h3 className=" font-semibold text-[20px] text-center">
@@ -60,7 +60,7 @@ const UserInventory = ({ inventoryData }: any) => {
 
               <Link
                 to={`/dashboard/checkOut/${a?._id}`}
-                className="inline-block cursor-pointer select-none  border border-gray-800 bg-gray-800 px-2 py-1 text-center align-middle text-sm font-semibold leading-normal text-white no-underline shadow-sm"
+                className="inline-block cursor-pointer select-none  border bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 btn-outline px-3 py-2 text-center align-middle text-sm font-semibold leading-normal text-white no-underline shadow-sm "
               >
                 Buy Now
               </Link>

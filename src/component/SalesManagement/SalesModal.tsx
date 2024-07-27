@@ -239,7 +239,7 @@ const SalesModal = () => {
         {/* Button trigger for vertically centered modal */}
         <button
           type="button"
-          className="inline-block rounded bg-blue-500 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white"
+             className="w-full "
           onClick={openCenterModal}
         >
           Sell
@@ -289,13 +289,14 @@ const SalesModal = () => {
 
                 <button
                   type="submit"
-                  className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                 className="py-2 w-full hover:bg-blue-500 px-3 flex justify-center  rounded-lg  border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
+                text-[15px] font-[500]"
                 >
                   Submit
                 </button>
               </form>
               <button
-                className="  rounded-full  text-white w-10 h-10 bg-red-500 absolute top-0 right-0"
+                className="  rounded-full hover:bg-red-500  text-white w-10 h-10 bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 absolute top-0 right-0"
                 onClick={closeCenterModal}
               >
                 X

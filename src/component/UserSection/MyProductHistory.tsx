@@ -1,11 +1,14 @@
 import { useGetSinglePurchaseQuery } from "../../redux/features/purchaseApi/purchaseApi";
 import { useAppSelector } from "../../redux/hooks";
+import Loging from "../../sharedComponent/Loging";
 
 const MyProductHistory = () => {
   const { user } = useAppSelector((state) => state.auth);
-  const { data } = useGetSinglePurchaseQuery(user?.email);
+  const { data ,isLoading} = useGetSinglePurchaseQuery(user?.email);
+  if (isLoading) {
+    return <Loging/>;
+  }
 
-  console.log(data);
   return (
     <div className="w-[90%] mx-auto pb-60">
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
@@ -14,8 +17,8 @@ const MyProductHistory = () => {
 
       {data?.data?.length > 0 ? (
         <section>
-          <div className="overflow-x-auto">
-            <table className="table bg-gray-700 text-white w-full mt-4 border p-10">
+          <div className="overflow-x-auto ">
+            <table className="table border-none bg-gradient-to-b from-gray-700 to-gray-600 bg-gradient-to-r text-white w-full mt-4 border p-10">
               {/* head */}
               <thead>
                 <tr className="text-white font-bold text-[15px]">

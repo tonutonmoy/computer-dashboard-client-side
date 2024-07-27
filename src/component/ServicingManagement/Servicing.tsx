@@ -55,7 +55,7 @@ const Servicing = () => {
         onSubmit={handleSubmit(onSubmit)}
         className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[95%] 2xl:w-[90%] mx-auto  mt-10  ${
           toggle && " border-[1px] "
-        }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
+        }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg shadow-lg`}
       >
         <section className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-0 md:gap-0 lg:gap-5 xl:gap-0 2xl:gap-0">
           <div className=" text-center my-5">
@@ -136,7 +136,7 @@ const Servicing = () => {
 
         <section className=" text-center mt-10">
           <button
-            className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+          className="py-2 w-[50%] px-3 rounded-lg btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
                 text-[17px] font-[500]"
           >
             Submit

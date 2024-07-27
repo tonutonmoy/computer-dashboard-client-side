@@ -5,17 +5,21 @@ import PurchaseForm from "./PurchaseForm";
 import { useGetSingleInventoryQuery } from "../../redux/features/inventoryApi/inventoryApi";
 import { useState } from "react";
 import CouponOffer from "../CouponManagement/CouponOffer";
+import Loging from "../../sharedComponent/Loging";
 
 const CheckOut = () => {
   const [date, SetDate] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
   const { id } = useParams();
-  const { data: singleData } = useGetSingleInventoryQuery(id, {
+  const { data: singleData,isLoading } = useGetSingleInventoryQuery(id, {
     refetchOnMountOrArgChange: true,
   });
   const dateChange = (d: any) => {
     setCurrentDate(d);
   };
+  if (isLoading) {
+    return <Loging/>;
+  }
 
   return (
     <div>

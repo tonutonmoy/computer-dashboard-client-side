@@ -47,7 +47,7 @@ const CouponOffer = () => {
       <div className="text-base mb-4">Use coupon code:</div>
       <div className="bg-white text-gray-800 rounded-lg px-4 py-2 flex items-center justify-between">
         <span className="text-2xl font-semibold">{code}</span>
-        <button className="bg-blue-800 text-white px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button className="bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 btn-outline text-white px-3 py-1 rounded-lg font-semibold focus:ring-blue-500">
           Copy
         </button>
       </div>

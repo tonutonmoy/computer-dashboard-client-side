@@ -29,7 +29,7 @@ const CreateCoupon = () => {
   return (
     <div className="m-10 w-screen max-w-screen-md">
       <div className="flex flex-col">
-        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg md:relative">
+        <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg md:relative ">
           <form onSubmit={handler} className=" ">
             <div className="grid  space-y-4">
               <div className="flex flex-col ">
@@ -96,7 +96,8 @@ const CreateCoupon = () => {
               <div>
                 <button
                   type="submit"
-                  className="rounded-lg bg-blue-600 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
+                className="py-1 px-3 rounded-lg btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
+                text-[17px] font-[500]"
                 >
                   Add
                 </button>
@@ -107,7 +108,8 @@ const CreateCoupon = () => {
             <button
               onClick={() => window.location.reload()}
               type="submit"
-              className="rounded-lg bg-red-500 px-8 py-2 font-medium text-white outline-none hover:opacity-80 focus:ring"
+    className="py-1 px-3 rounded-lg btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+                text-[17px] font-[500]"
             >
               Reset
             </button>

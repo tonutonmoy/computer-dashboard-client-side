@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { logout } from "../../redux/features/auth/authSlice";
 import { useAppDispatch } from "../../redux/hooks";
+import Loging from "../../sharedComponent/Loging";
 
 const EditInventory = () => {
   const [addFunction, { data }] = useCreateInventoryMutation();
@@ -21,7 +22,7 @@ const EditInventory = () => {
 
   console.log(id, "single id");
 
-  const { data: singleData } = useGetSingleInventoryQuery(id, {
+  const { data: singleData,isLoading } = useGetSingleInventoryQuery(id, {
     refetchOnMountOrArgChange: true,
   });
   const dispatch = useAppDispatch();
@@ -101,6 +102,11 @@ const EditInventory = () => {
 
     console.log(data);
   };
+
+  if (isLoading) {
+    return <Loging/>;
+  }
+
   return (
     <div className=" w-full pb-60  ">
       <h2 className=" text-[30px] font-semibold text-gray-700 text-center my-10 ">
@@ -111,7 +117,7 @@ const EditInventory = () => {
         onSubmit={onSubmit}
         className={`w-[90%] md:w-[90%] lg:w-[90%] xl:w-[95%] 2xl:w-[90%] mx-auto  mt-10  ${
           toggle && " border-[1px] "
-        }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg `}
+        }  px-4 md:px-2  lg:px-4  xl:px-0  2xl:px-0   py-10  rounded-lg shadow-lg `}
       >
         <div>
           <img
@@ -232,7 +238,7 @@ const EditInventory = () => {
           <div className=" text-center mt-10">
             <button
               onClick={() => setTodo("Edit")}
-              className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+              className="py-2 px-3 rounded-lg w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 text-white hover:border-white 
             text-[17px] font-[500]"
             >
               Edit
@@ -242,7 +248,7 @@ const EditInventory = () => {
           <div className=" text-center mt-10">
             <button
               onClick={() => setTodo("Duplicate")}
-              className="btn w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
+              className="py-2 px-3 rounded-lg w-[50%] btn-outline border-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 text-white hover:border-white 
             text-[17px] font-[500]"
             >
               Duplicate

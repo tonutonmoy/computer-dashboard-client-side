@@ -87,7 +87,7 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
   };
   return (
     <section>
-      <section className="h-screen bg-gray-100 py-12 sm:py-16 lg:py-20">
+      <section className=" bg-gray-100 py-12 sm:py-16 lg:py-20">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mt-8 max-w-md md:mt-12">
             <div className="rounded-3xl bg-white shadow-lg relative">
@@ -109,7 +109,7 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
                   <button
                     onClick={handleDecrement}
                     data-action="decrement"
-                    className=" bg-orange-500  hover:text-white text-white hover:bg-gray-800 h-full w-20 rounded-l cursor-pointer outline-none"
+                    className=" bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90  hover:text-white text-white hover:bg-gray-800 h-full w-20 rounded-l cursor-pointer outline-none"
                   >
                     <span className="m-auto text-2xl font-thin">−</span>
                   </button>
@@ -119,7 +119,7 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
                   <button
                     onClick={handleIncrement}
                     data-action="increment"
-                    className="bg-orange-500 hover:text-white text-white hover:bg-gray-800 h-full w-20 rounded-r cursor-pointer"
+                    className="bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-red-500/90 via-black to-red-500/90 hover:text-white text-white hover:bg-gray-800 h-full w-20 rounded-r cursor-pointer"
                   >
                     <span className="m-auto text-2xl font-thin">+</span>
                   </button>
@@ -155,7 +155,7 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
                   <button
                     onClick={purchaseHandler}
                     type="button"
-                    className="group inline-flex w-full items-center justify-center rounded-md bg-orange-500 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
+                    className="group inline-flex w-full items-center justify-center rounded-md bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 px-3 py-2 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow btn-outline hover:bg-gray-800"
                   >
                     Purchase
                     <svg
