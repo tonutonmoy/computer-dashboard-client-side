@@ -130,7 +130,7 @@ const ServicingManagement = () => {
                   </button>
                 </div>
                 {/* Modal body */}
-                <div className="p-4 space-y-4 w-[500px] h-[300px] overflow-y-scroll">
+                <div className="p-4 space-y-4 w-[90%] md:w-[500px] h-[300px] overflow-y-scroll">
                   <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                     {detail}
                   </p>

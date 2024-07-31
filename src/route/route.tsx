@@ -17,6 +17,9 @@ import PurchaseHistory from "../component/PurchaseManagement/PurchaseHistory";
 import Servicing from "../component/ServicingManagement/Servicing";
 import ServicingManagement from "../component/ServicingManagement/ServicingManagement";
 import MyProductHistory from "../component/UserSection/MyProductHistory";
+import SSLPaymentSuccess from "../component/Inventory/SSLPaymentSuccess";
+import SSLPaymentFail from "../component/Inventory/SSLPaymentFail";
+import SSLPaymentCancel from "../component/Inventory/SSLPaymentCancel";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,7 @@ const router = createBrowserRouter([
     path: "/registration",
     element: <Registration />,
   },
+ 
 
   {
     path: "/dashboard",
@@ -133,6 +137,18 @@ const router = createBrowserRouter([
             <MyProductHistory />
           </RouteProvider>
         ),
+      },
+      {
+        path: "/dashboard/payment/success",
+        element: <SSLPaymentSuccess />,
+      },
+      {
+        path: "/dashboard/payment/fail",
+        element: <SSLPaymentFail />,
+      },
+      {
+        path: "/dashboard/payment/cancel",
+        element: <SSLPaymentCancel />,
       },
     ],
   },

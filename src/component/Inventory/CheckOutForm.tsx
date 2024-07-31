@@ -55,6 +55,7 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
 
   const purchaseHandler = async () => {
     const info = {
+      productId:singleData?.data?._id,
       name: singleData?.data?.name,
       category: singleData?.data?.category,
       brand: singleData?.data?.brand,
@@ -72,14 +73,10 @@ const CheckOutForm = ({ singleData, currentDate }: any) => {
     await createPurchaseFunction(info)
       .unwrap()
       .then((a) => {
-        console.log(a);
-        if (a?.success === true) {
-          return toast.success("Purchasing complete");
-        }
 
-        if (a?.success === false) {
-          return toast.error(a?.errorMessage);
-        }
+        window.location.replace(a?.data?.url);
+        console.log(a);
+      
       })
       .catch((e) => {
         console.log(e);

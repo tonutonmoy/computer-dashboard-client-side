@@ -1,8 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const UserInventory = ({ inventoryData }: any) => {
-  console.log(inventoryData);
+
+  const navigate= useNavigate()
+
+  const navigateHandler=(id:string)=>{
+    navigate(`/dashboard/checkOut/${id}`)
+  }
+  
   return (
     <div className=" grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-4 gap-10 ">
       {inventoryData?.map((a: any) => (
@@ -57,13 +63,15 @@ const UserInventory = ({ inventoryData }: any) => {
                   </p>
                 </div>
               </div>
+              <button onClick={()=> navigateHandler(a?._id)}
+  disabled={a?.quantity === 0}
+  className={`inline-block cursor-pointer ${a?.quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''} select-none border bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 text-white via-black to-blue-500/90 btn-outline px-3 py-2 text-center align-middle text-sm font-semibold leading-normal  no-underline shadow-sm`}
+>
 
-              <Link
-                to={`/dashboard/checkOut/${a?._id}`}
-                className="inline-block cursor-pointer select-none  border bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-blue-500/90 via-black to-blue-500/90 btn-outline px-3 py-2 text-center align-middle text-sm font-semibold leading-normal text-white no-underline shadow-sm "
-              >
-                Buy Now
-              </Link>
+{a?.quantity === 0?"Not available" :"Buy Now"}
+  
+</button>
+            
             </article>
           </div>
         </section>
