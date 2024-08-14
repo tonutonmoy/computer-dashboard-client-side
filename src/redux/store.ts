@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./features/auth/authSlice";
 import inventoryReducer from "./features/inventoryApi/inventorySlice";
+import profileReducer from "./features/auth/ProfileSlice";
 import { baseApi } from "./api/baseApi";
 
 import {
@@ -26,6 +27,7 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persistedAuthReducer,
     inventory: inventoryReducer,
+    profile: profileReducer,
   },
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares({

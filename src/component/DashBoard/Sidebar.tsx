@@ -97,6 +97,12 @@ const Sidebar = ({logOutHandler,user,setIsOpen}:any) => {
             
             </ul>
           )}
+           <Link  onClick={() => setIsOpen(false)} to="/dashboard/profile" className={`flex items-center text-white  px-3 py-2 font-semibold text-[17px]  ${
+                  location?.pathname === "/dashboard/profile" &&
+                  " bg-blue-300/70  rounded-xl"
+                }`}>
+                  My Profile
+                </Link>
 
           <div className="mt-[100px] absolute bottom-[10%] right-[50%]">
             <button

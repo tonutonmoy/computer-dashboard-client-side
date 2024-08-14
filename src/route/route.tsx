@@ -20,6 +20,7 @@ import MyProductHistory from "../component/UserSection/MyProductHistory";
 import SSLPaymentSuccess from "../component/Inventory/SSLPaymentSuccess";
 import SSLPaymentFail from "../component/Inventory/SSLPaymentFail";
 import SSLPaymentCancel from "../component/Inventory/SSLPaymentCancel";
+import Profile from "../component/DashBoard/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -135,6 +136,14 @@ const router = createBrowserRouter([
         element: (
           <RouteProvider>
             <MyProductHistory />
+          </RouteProvider>
+        ),
+      },
+      {
+        path: "/dashboard/profile",
+        element: (
+          <RouteProvider>
+            <Profile />
           </RouteProvider>
         ),
       },
