@@ -1,13 +1,28 @@
+import { useState } from "react";
 import { useGetSinglePurchaseQuery } from "../../redux/features/purchaseApi/purchaseApi";
 import { useAppSelector } from "../../redux/hooks";
 import Loging from "../../sharedComponent/Loging";
+import ReviewModal from "../../sharedComponent/ReviewModal";
+import { useGetUserQuery } from "../../redux/features/auth/authApi";
 
 const MyProductHistory = () => {
+  const [modal, setModal] = useState(false);
   const { user } = useAppSelector((state) => state.auth);
   const { data ,isLoading} = useGetSinglePurchaseQuery(user?.email);
+  const { data: userData} = useGetUserQuery('');
+
+  const [id,setId]=useState('')
+  const handler=(e:string)=>{
+ console.log(id,'idsCDsCsssdasddas')
+    setId(e)
+    setModal(true)
+
+  }
   if (isLoading) {
     return <Loging/>;
   }
+
+  console.log(data)
 
   return (
     <div className="w-[90%] mx-auto pb-60">
@@ -34,6 +49,7 @@ const MyProductHistory = () => {
                   <th>Interface</th>
                   <th>Quantity</th>
                   <th>Price</th>
+                  <th>Review</th>
                 </tr>
               </thead>
               {data?.data?.map((a: Record<string, number>) => (
@@ -55,9 +71,25 @@ const MyProductHistory = () => {
                     <td>{a?.interface}</td>
                     <td>{a?.quantity}</td>
                     <td>{a?.price}</td>
+                    <td > <span
+                        onClick={() => handler(a?.productId.toString())}
+                        className="text-white bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))]  text-[15px] from-blue-500/90 via-black to-blue-500/90 btn-outline py-1 px-3 rounded-lg font-semibold focus:none cursor-pointer"
+                      >
+                       Review 
+                      </span></td>
                   </tr>
                 </tbody>
               ))}
+              
+             {modal&&<ReviewModal
+             email={userData?.data?.email}
+             id={id}
+             name={userData?.data?.name}
+             image={userData?.data?.image}
+            
+                    setModal={setModal}
+                    />}
+
             </table>
           </div>
         </section>
